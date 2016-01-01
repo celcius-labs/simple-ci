@@ -1,0 +1,3 @@
+config.json
+migrations/.migrate-development
+node_modules
