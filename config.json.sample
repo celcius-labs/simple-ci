@@ -1,0 +1,12 @@
+{
+  "database": {
+    "postgres": {
+      "username": "ci",
+      "password": "password",
+      "database": "ci",
+      "hostname": "database-server",
+      "port": 5432
+    }
+  },
+  "platform": "x86_64"
+}

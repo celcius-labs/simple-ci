@@ -4,10 +4,11 @@
   "description": "Simple Continuous Integration Server",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "migrate-up": "migrate up"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "hapi": "^11.1.4",
     "parse-github-url": "^0.2.1",
