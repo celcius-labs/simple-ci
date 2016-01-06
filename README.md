@@ -24,7 +24,7 @@ the tests on multiple platforms, and can drive embedded systems.
 * Git Integration (done)
 * Basic Test Runner w/Reporting (done)
 * Testing Queues (not started)
-* Web Interface (not started)
+* Web Interface (done)
 * Github/Gitlab Webhooks (not started)
 * Container Isolation (not started)
 
@@ -94,4 +94,10 @@ Before the first run, migrations must be run:
 
 ```
 $ npm run migrate_up
+```
+
+#### Webserver
+
+```
+$ node index.js
 ```
