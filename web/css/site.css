@@ -1093,3 +1093,22 @@ tr:nth-child(odd) {
   background-color:green;
   z-index:1;
   opacity: 0.75; }
+
+.status-error {
+  margin-left: 8px; }
+
+.status-error:before{
+  width: 4px;
+  position:absolute;
+  left:0;
+  top:0;
+  content:"";
+  display:block;
+  height:100%;
+  background-color:red;
+  z-index:1;
+  opacity: 0.75; }
+
+.indented {
+  margin-left: 8px;
+  margin-bottom: 16px; }

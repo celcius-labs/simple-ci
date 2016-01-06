@@ -15,10 +15,10 @@
         <div class="column-6">
           <div class="result-list" ng-repeat="result in results">
             <span ng-if="result.error === true">
-              <span class="build-error">𝙭 {{result.project.name}}</span>
+              <span class="build-error">𝙭 {{result.project.name}}<span style="float: right"><a ng-click="show_build(result.id)" href="#{{result.id}}">#{{result.id}}</a></span></span>
             </span>
             <span ng-if="result.error === false">
-              <span class="build-ok">✓ {{result.project.name}}</span>
+              <span class="build-ok">✓ {{result.project.name}}<span style="float: right"><a ng-click="show_build(result.id)" href="#{{result.id}}">#{{result.id}}</a></span></span>
             </span>
             <br>
             Platform: <em>{{result.platform}}</em>
@@ -32,11 +32,11 @@
         <div class="column-18" style="position: relative">
           <div ng-class="{'status-ok': current.error === false, 'status-error': current.error === true}">
             <h2>{{current.project.name}}</h2>
-            <strong>{{current.project.repo}}</strong>
-            <br>
-            Platform: {{current.platform}}
-            <br>
-            <br>
+            <div class="indented">
+              <strong>{{current.project.repo}}</strong>
+              <br>
+              Platform: {{current.platform}}
+            </div>
             <div ng-if="current.test_stdout">
               <strong>Test Output:</strong>
               <br>
@@ -77,6 +77,11 @@
               <strong>Setup Output:</strong>
               <br>
               <code><pre>{{current.setup_stdout}}</pre></code>
+            </div>
+            <div ng-if="current.setup_stderr">
+              <strong>Setup stderr:</strong>
+              <br>
+              <code><pre>{{current.setup_stderr}}</pre></code>
             </div>
 
           </div>
