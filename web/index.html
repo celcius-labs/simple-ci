@@ -9,7 +9,7 @@
   <body ng-controller="applicationController">
     <div class="container">
       <div class="column-24">
-        <h1>Simple CI</h1>
+        <h1><a href="https://github.com/celcius-labs/simple-ci">Simple CI</a></h1>
       </div>
       <div class="column-24">
         <div class="column-6">
@@ -31,7 +31,10 @@
         </div>
         <div class="column-18" style="position: relative">
           <div ng-if="current" ng-class="{'status-ok': current.error === false, 'status-error': current.error === true}">
-            <h2>{{current.project.name}}</h2>
+            <h2>
+              <a href="{{current.project.href}}" target="_default" ng-if="current.project.href !== null">{{current.project.name}}</a>
+              <span ng-if="current.project.href === null">{{current.project.name}}</span>
+            </h2>
             <div class="indented">
               <strong>{{current.project.repo}}</strong>
               <span style="float: right">

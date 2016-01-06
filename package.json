@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "migrate-up": "migrate up"
   },
-  "author": "",
+  "author": "Jerry Sievert <code@legitimatesounding.com>",
   "license": "MIT",
   "dependencies": {
     "hapi": "^11.1.4",
