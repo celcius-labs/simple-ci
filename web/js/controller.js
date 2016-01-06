@@ -20,6 +20,11 @@ app.controller('applicationController', function ($scope, $http, $location) {
     count = count || 25;
 
     $http.get('/api/v1/last').success(function (data) {
+      for (var i = 0; i < data.rows.length; i++) {
+        data.rows[i].started_read = new Date(data.rows[i].started_epoch).toString();
+        data.rows[i].ended_read = new Date(data.rows[i].ended_epoch).toString();
+        data.rows[i].duration = (data.rows[i].ended_epoch - data.rows[i].started_epoch) / 1000;
+      }
       $scope.results = data.rows;
 
       if (id === undefined || Number.isNaN(id)) {
@@ -38,6 +43,9 @@ app.controller('applicationController', function ($scope, $http, $location) {
     } else {
       $http.get('/api/v1/result?id=' + id).success(function (data) {
         if (data && data.success) {
+          data.row.started_read = new Date(data.row.started_epoch).toString();
+          data.row.ended_read = new Date(data.row.ended_epoch).toString();
+          data.row.duration = (data.row.ended_epoch - data.row.started_epoch) / 1000;
           $scope.current = data.row;
         }
       });

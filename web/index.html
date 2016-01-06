@@ -30,12 +30,20 @@
           </div>
         </div>
         <div class="column-18" style="position: relative">
-          <div ng-class="{'status-ok': current.error === false, 'status-error': current.error === true}">
+          <div ng-if="current" ng-class="{'status-ok': current.error === false, 'status-error': current.error === true}">
             <h2>{{current.project.name}}</h2>
             <div class="indented">
               <strong>{{current.project.repo}}</strong>
+              <span style="float: right">
+                Started: {{current.started_read}}
+                <br>
+                Ended: {{current.ended_read}}
+              </span>
               <br>
               Platform: {{current.platform}}
+              <br>
+              <br>
+              Duration: {{current.duration}} Seconds
             </div>
             <div ng-if="current.test_stdout">
               <strong>Test Output:</strong>
