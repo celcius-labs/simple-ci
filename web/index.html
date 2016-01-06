@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html ng-app="Application">
+  <head>
+    <link rel="stylesheet" href="css/site.css">
+    <title>Simple-CI</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+    <script src="js/ngtimeago.js"></script>
+  </head>
+  <body ng-controller="applicationController">
+    <div class="container">
+      <div class="column-24">
+        <h1>Simple CI</h1>
+      </div>
+      <div class="column-24">
+        <div class="column-6">
+          <div class="result-list" ng-repeat="result in results">
+            <span ng-if="result.error === true">
+              <span class="build-error">𝙭 {{result.project.name}}</span>
+            </span>
+            <span ng-if="result.error === false">
+              <span class="build-ok">✓ {{result.project.name}}</span>
+            </span>
+            <br>
+            Platform: <em>{{result.platform}}</em>
+            <br>
+            Started: {{result.started|timeago}}
+            <br>
+            Ended: {{result.ended|timeago}}
+            <hr>
+          </div>
+        </div>
+        <div class="column-18" style="position: relative">
+          <div ng-class="{'status-ok': current.error === false, 'status-error': current.error === true}">
+            <h2>{{current.project.name}}</h2>
+            <strong>{{current.project.repo}}</strong>
+            <br>
+            Platform: {{current.platform}}
+            <br>
+            <br>
+            <div ng-if="current.test_stdout">
+              <strong>Test Output:</strong>
+              <br>
+              <code><pre>{{current.test_stdout}}</pre></code>
+            </div>
+            <div ng-if="current.test_error">
+              <strong>Test Error:</strong>
+              <br>
+              <code><pre>{{current.test_error}}</pre></code>
+            </div>
+            <div ng-if="current.build_error">
+              <strong>Build Error:</strong>
+              <br>
+              <code><pre>{{current.build_error}}</pre></code>
+            </div>
+            <div ng-if="current.build_stdout">
+              <strong>Build Output:</strong>
+              <br>
+              <code><pre>{{current.build_stdout}}</pre></code>
+            </div>
+            <div ng-if="current.build_stderr">
+              <strong>Build stderr:</strong>
+              <br>
+              <code><pre>{{current.build_stderr}}</pre></code>
+            </div>
+
+            <div ng-if="current.init_error">
+              <strong>Initialization Error:</strong>
+              <br>
+              <code><pre>{{current.init_error}}</pre></code>
+            </div>
+            <div ng-if="current.setup_error">
+              <strong>Setup Error:</strong>
+              <br>
+              <code><pre>{{current.setup_error}}</pre></code>
+            </div>
+            <div ng-if="current.setup_stdout">
+              <strong>Setup Output:</strong>
+              <br>
+              <code><pre>{{current.setup_stdout}}</pre></code>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/controller.js"></script>
+  </body>
+</html>
