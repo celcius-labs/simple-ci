@@ -8,5 +8,9 @@
       "port": 5432
     }
   },
-  "platform": "x86_64"
+  "platform": "x86_64",
+  "webserver": {
+    "port": 8080
+  }
+
 }
