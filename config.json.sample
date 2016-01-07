@@ -6,6 +6,10 @@
       "database": "ci",
       "hostname": "database-server",
       "port": 5432
+    },
+    "redis": {
+      "hostname": "hostname",
+      "port": 6379
     }
   },
   "platform": "x86_64",

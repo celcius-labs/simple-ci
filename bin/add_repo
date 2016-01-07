@@ -1,0 +1,23 @@
+#!/usr/bin/env node
+var argv = require('yargs')
+    .usage('Usage: $0 [options]')
+    .example('$0 count -r repo -n name -u url -a architectures', 'add a repo to test')
+    .demand('r')
+    .demand('n')
+    .demand('u')
+    .demand('a')
+    .array('a')
+    .help('h')
+    .alias('h', 'help')
+    .argv;
+
+var project = require('../lib/models/project');
+
+project.create({
+  name: argv.n,
+  repo: argv.r,
+  href: argv.u,
+  architectures: argv.a
+}).done(function ( ) {
+  console.log("added " + argv.r);
+});
