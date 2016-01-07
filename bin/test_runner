@@ -1,0 +1,28 @@
+#!/usr/bin/env node
+
+var redis = require('redis');
+var runner = require('../lib/runner');
+var config = require('../config.json');
+
+
+var client = redis.createClient(config.database.redis.port, config.database.redis.hostname);
+
+client.on("connect", function ( ) {
+  console.log("connected");
+  check_for_job();
+});
+
+function check_for_job ( ) {
+  client.rpop(config.platform, function (err, value) {
+    if (err) {
+      console.log("error: " + err);
+      process.exit(1);
+    }
+
+    if (value) {
+      runner.run(value);
+    }
+
+    setTimeout(check_for_job, 30000);
+  });
+}
