@@ -23,9 +23,9 @@ the tests on multiple platforms, and can drive embedded systems.
 * Database Models (done)
 * Git Integration (done)
 * Basic Test Runner w/Reporting (done)
-* Testing Queues (not started)
+* Testing Queues (done)
 * Web Interface (done)
-* Github/Gitlab Webhooks (not started)
+* Github/Gitlab Webhooks (done)
 * Container Isolation (not started)
 
 ## Setup
@@ -100,4 +100,13 @@ $ npm run migrate_up
 
 ```
 $ node index.js
+```
+
+#### Test Runners
+
+The `test_runner` script will listen for tests from the redis queue every 30
+seconds.
+
+```
+$ ./bin/test_runner 2>&1 >test.log &
 ```
