@@ -20,7 +20,9 @@ function check_for_job ( ) {
     }
 
     if (value) {
-      runner.run(value);
+      var data = JSON.parse(value);
+
+      runner.run(data);
     }
 
     setTimeout(check_for_job, 30000);
