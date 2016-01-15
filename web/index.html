@@ -46,6 +46,11 @@
               Platform: {{current.platform}}
               <br>
               <br>
+              Commit: <a href="{{current.repo_data.compare}}">{{current.repo_data.after}}</a>
+              <br>
+              Branch: {{current.repo_data.ref}}
+              <br>
+              <br>
               Duration: {{current.duration}} Seconds
             </div>
             <div ng-if="current.test_stdout">
