@@ -48,10 +48,10 @@
               <br>
               Commit: <a href="{{current.repo_data.compare}}">{{current.repo_data.after}}</a>
               <br>
-              Branch: {{current.repo_data.ref}}
+              Branch: <em>{{current.repo_data.ref}}</em>
               <br>
               <br>
-              Duration: {{current.duration}} Seconds
+              Duration: <em>{{current.duration}} Seconds</em>
             </div>
             <div ng-if="current.test_stdout">
               <strong>Test Output:</strong>
