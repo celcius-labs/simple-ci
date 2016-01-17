@@ -17,6 +17,19 @@ the tests on multiple platforms, and can drive embedded systems.
 
 ![Architecture](img/architecture.png)
 
+Each platform that a test runs on is defined by the configuration set up in
+`config.json`.  For instance, if a _test runner_ is set up for a platform
+called `armv7` is configured, it will listen for commits that are set up to
+run on `armv7`.
+
+### Setting up a Repository
+
+A repository can be set up by running `add_repo`.
+
+```
+$ add_repo -r https://github.com/celcius-labs/emdb.git -n emdb -u https://github.com/celcius-labs/emdb -a x86_64 armv6 armv7 mips
+```
+
 ### Current Status
 
 * Database Configuration (done)
