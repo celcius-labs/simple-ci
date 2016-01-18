@@ -74,6 +74,15 @@ These requirements are likely to grow over time.  Currently, you will need to
 have a working knowledge of both in order to use this package.  Over time,
 those restrictions will be eased, but this package is in very early stages.
 
+#### Requirements
+
+The following prerequisites are required:
+
+* Node.js
+* Postgres
+* PLV8
+* Redis 
+
 #### Setting up Postgres
 
 First set up the database, then set up the user:
@@ -86,8 +95,9 @@ ci=# CREATE USER ci WITH PASSWORD 'password';
 CREATE ROLE
 ci=# ci=# grant all privileges on database ci to ci;
 GRANT
-ci=# \q
+ci=# CREATE EXTENSION plv8;
 ```
+
 
 #### Setting up Runners
 
