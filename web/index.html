@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html ng-app="Application">
   <head>
-    <link rel="stylesheet" href="css/site.css">
+    <link rel="stylesheet" href="/css/site.css">
     <title>Simple-CI</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
-    <script src="js/ngtimeago.js"></script>
+    <script src="/js/ngtimeago.js"></script>
   </head>
   <body ng-controller="applicationController">
     <div class="container">
@@ -13,6 +13,11 @@
       </div>
       <div class="column-24">
         <div class="column-6">
+          <div ng-if="repository">
+            <h3>{{repository}}</h3>
+            <img style="margin-left: 16px;" ng-src="/repo/{{username}}/{{repository}}/badge.png">
+            <hr>
+          </div>
           <div class="result-list" ng-repeat="result in results">
             <span ng-if="result.error === true">
               <span class="build-error">𝙭 {{result.project.name}}<span style="float: right"><a ng-click="show_build(result.id)" href="#{{result.id}}">#{{result.id}}</a></span></span>
@@ -104,6 +109,6 @@
         </div>
       </div>
     </div>
-    <script src="js/controller.js"></script>
+    <script src="/js/controller.js"></script>
   </body>
 </html>

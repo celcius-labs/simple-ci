@@ -10,6 +10,7 @@
   "author": "Jerry Sievert <code@legitimatesounding.com>",
   "license": "MIT",
   "dependencies": {
+    "gm": "^1.21.1",
     "hapi": "^11.1.4",
     "inert": "^3.2.0",
     "parse-github-url": "^0.2.1",

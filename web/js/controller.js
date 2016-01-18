@@ -9,17 +9,29 @@ function find_by_id (id, rows) {
 }
 
 app.controller('applicationController', function ($scope, $http, $location) {
-
   var id;
 
   if ($location.path()) {
     id = Number($location.path().substring(1));
   }
 
+  var paths = $location.absUrl().split('/');
+
+  if (paths.length == 6 && paths[3] === 'repo') {
+    $scope.username = paths[4];
+    $scope.repository = paths[5];
+  }
+
   $scope.get_last = function (count) {
     count = count || 25;
 
-    $http.get('/api/v1/last').success(function (data) {
+    var url = '/api/v1/last';
+
+    if ($scope.username) {
+      url += '?username=' + $scope.username + '&repository=' + $scope.repository;
+    }
+
+    $http.get(url).success(function (data) {
       for (var i = 0; i < data.rows.length; i++) {
         data.rows[i].started_read = new Date(data.rows[i].started_epoch).toString();
         data.rows[i].ended_read = new Date(data.rows[i].ended_epoch).toString();
