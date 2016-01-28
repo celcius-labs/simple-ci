@@ -1080,7 +1080,8 @@ tr:nth-child(odd) {
   font-size: 0.9em; }
 
 .status-ok {
-  margin-left: 8px; }
+  margin-left: 2px;
+  padding-left: 8px; }
 
 .status-ok:before{
   width: 4px;
@@ -1095,7 +1096,8 @@ tr:nth-child(odd) {
   opacity: 0.75; }
 
 .status-error {
-  margin-left: 8px; }
+  margin-left: 2px;
+  padding-left: 8px; }
 
 .status-error:before{
   width: 4px;

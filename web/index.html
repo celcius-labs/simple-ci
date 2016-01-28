@@ -18,7 +18,7 @@
             <img style="margin-left: 16px;" ng-src="/repo/{{username}}/{{repository}}/badge.png">
             <hr>
           </div>
-          <div class="result-list" ng-repeat="result in results">
+          <div style="position: relative;" class="result-list" ng-repeat="result in results" ng-class="{'status-ok': current.id === result.id && current.error === false, 'status-error': current_id === result.id && current.error === true}">
             <span ng-if="result.error === true">
               <span class="build-error">𝙭 {{result.project.name}}<span style="float: right"><a ng-click="show_build(result.id)" href="#{{result.id}}">#{{result.id}}</a></span></span>
             </span>
